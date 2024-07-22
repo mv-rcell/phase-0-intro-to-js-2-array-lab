@@ -10,7 +10,6 @@ describe('index.js', function () {
   describe('Array functions', function () {
     beforeEach(function () {
       cats.length = 0;
-
       cats.push('Milo', 'Otis', 'Garfield');
     });
 
@@ -22,6 +21,12 @@ describe('index.js', function () {
       });
     });
 
+     
+function destructivelyAppendCat(name) {
+    cats.push(name);
+}
+console.log(cats);
+
     describe('destructivelyPrependCat(name)', function () {
       it('prepends a cat to the beginning of the cats array', function () {
         destructivelyPrependCat("Bob");
@@ -29,6 +34,12 @@ describe('index.js', function () {
         expect(cats).to.have.ordered.members(["Bob", "Milo", "Otis", "Garfield"]);
       });
     });
+
+  function destructivelyPrependCat(name) {
+    cats.unshift(name);
+}
+console.log(cats);
+
 
     describe('destructivelyRemoveLastCat()', function () {
       it('removes the last cat from the cats array', function () {
